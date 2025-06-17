@@ -5,6 +5,9 @@ import ProductList from "./components/ProductList";
 import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage"
 import Home from "./pages/Home";
+import MeusPedidosPage from "./components/MeusPedidosPage";
+import LoginPage from "./pages/LoginPage";
+import PerfilPage from "./pages/PerfilPages";
 
 function App() {
   const [carrinho, setCarrinho] = useState(() => {
@@ -83,15 +86,17 @@ function App() {
         <main style={{ flex: 1, padding: "80px 20px 20px" }}>
           <Routes>
             <Route
-              path="/"
-              element= {<Home/>} />
-            <Route 
-              path = "/categoria/:nome"
-              element={<ProductList aoAdicionar={adicionarAoCarrinho}/>} />
+              path="/login"
+              element={<LoginPage />} />
+            <Route
+              path="/perfil"
+              element={<PerfilPage />} />
             <Route
               path="/"
-              element={<ProductList aoAdicionar={adicionarAoCarrinho} />}
-            />
+              element={<Home />} />
+            <Route
+              path="/categoria/:nome"
+              element={<ProductList aoAdicionar={adicionarAoCarrinho} />} />
             <Route
               path="/carrinho"
               element={
@@ -112,6 +117,11 @@ function App() {
                 />
               }
             />
+            <Route
+              path="/meus-pedidos"
+              element={
+                <MeusPedidosPage />
+              } />
           </Routes>
         </main>
       </Router>
